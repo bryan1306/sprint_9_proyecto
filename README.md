@@ -31,20 +31,9 @@ from scipy import stats
 from statsmodels.stats.proportion import proportions_ztest
 from datetime import timedelta
 
-📂 1. Carga y exploración de los datos
 
-Se cargaron los siguientes datasets:
 
-hypotheses_us.csv → contiene las hipótesis y sus parámetros (Reach, Impact, Confidence, Effort)
-
-orders_us.csv → pedidos realizados por usuarios
-
-visits_us.csv → visitas diarias por grupo
-
-No se encontraron valores nulos.
-Se realizó la conversión de columnas de fecha al tipo datetime para facilitar el análisis.
-
-🚦 2. Priorización de hipótesis (ICE y RICE)
+🚦  Priorización de hipótesis (ICE y RICE)
 ✔️ Fórmulas utilizadas
 
 
@@ -64,24 +53,24 @@ La hipótesis más prioritaria según RICE fue:
 
 Las hipótesis que aparecen en puestos altos en ambos rankings deben considerarse prioritarias, ya que presentan un equilibrio óptimo entre alcance, impacto y esfuerzo.
 
-🧪 3. Análisis del Test A/B
-3.1 Ingreso acumulado
+🧪  Análisis del Test A/B
+ Ingreso acumulado
 
 El grupo B muestra un crecimiento más acelerado desde mitad del experimento, separándose significativamente del grupo A.
 
-3.2 Ticket promedio acumulado
+ Ticket promedio acumulado
 
 El grupo B supera al A luego de un incremento abrupto en la segunda mitad del experimento, manteniendo una tendencia estable al alza.
 
-3.3 Diferencia relativa del ticket promedio
+ Diferencia relativa del ticket promedio
 
 Desde el 18 de agosto, B mantiene una ventaja relativa estable de ~40% sobre A.
 
-3.4 Conversión diaria
+ Conversión diaria
 
 El grupo B tiene mejores tasas de conversión a lo largo de la prueba, alcanzando picos superiores al 5%.
 
-🔍 4. Análisis de outliers
+🔍  Análisis de outliers
 
 Pedidos por usuario (percentiles):
 
@@ -99,7 +88,7 @@ P99 = 900.90
 
 Se filtraron los datos eliminando usuarios y pedidos atípicos para repetir las pruebas estadísticas.
 
-📊 5. Pruebas estadísticas
+📊  Pruebas estadísticas
 ✔️ Conversión (sin filtrar)
 
 p-valor = 0.0232 (< 0.05)
@@ -120,7 +109,7 @@ p-valor = 0.0142 (< 0.05)
 p-valor = 0.9332 (> 0.05)
 → no hay diferencia.
 
-🧠 6. Conclusiones
+🧠  Conclusiones
 
 El grupo B presenta una mejor tasa de conversión, incluso tras el filtrado.
 
@@ -130,12 +119,12 @@ El ingreso acumulado muestra una tendencia más favorable para el grupo B.
 
 El efecto positivo parece estar impulsado por mayor conversión, no por aumento del valor de compra.
 
-📝 7. Decisión final
+📝  Decisión final
 ✅ Decisión: Continuar la prueba
 
 Aunque el grupo B muestra ventaja significativa en conversión, aún no existe evidencia suficiente en ticket promedio o ingresos totales para declarar un ganador definitivo. Se recomienda extender el experimento para confirmar si la diferencia se mantiene y se traduce en mayor rentabilidad.
 
-🚀 8. Líneas de mejora futura
+🚀  Líneas de mejora futura
 
 Implementar un análisis por segmentos (nuevos vs recurrentes, tramos de ingreso).
 
